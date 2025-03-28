@@ -4,6 +4,22 @@
 @using BlazingPizza.Services
 @inject OrderState OrderState
 
+<div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
+
+    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All">
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </NavLink>
+
+    <NavLink href="myorders" class="nav-tab">
+        <img src="img/bike.svg" />
+        <div>My Orders</div>
+    </NavLink>
+</div>
+
 <div class="main">
     <h1>Blazing Pizzas</h1>
     <ul class="pizza-cards">
@@ -53,7 +69,7 @@
     <div class="order-total @(order.Pizzas.Any() ? "" : "hidden")">
         Total:
         <span class="total-price">@order.GetFormattedTotalPrice()</span>
-        <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
+        <a href="./checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
             Order >
         </a>
     </div>
